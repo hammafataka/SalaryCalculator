@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalaryCalculator.Views.MonthlyNote"
+             Title="Monthly NoteBook">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding LoadDataCommand}"/>
+        <ToolbarItem Text="Delete" Command="{Binding DeleteDataCommand}"/>
+        <ToolbarItem Text="Clear" Command="{Binding ClearDataCommand}"/>
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.Content>
+        <StackLayout>
+            <Label 
+                    Text="Hours:"
+                    TextColor="Black"
+                    FontSize="Large"
+                    FontAttributes="Italic"
+                    VerticalOptions="Center"
+                    />
+            <Entry Text="{Binding hour}"
+
+                       WidthRequest="300"
+                       HorizontalTextAlignment="Center"
+                       Keyboard="Numeric"
+                       />
+            <Label 
+
+                    Text="Per Hour:"
+                    TextColor="Black"
+                    FontSize="Large"
+                    FontAttributes="Italic"
+                    VerticalOptions="Center"
+                    />
+            <Entry Text="{Binding PerHour}"
+                       WidthRequest="300"
+                       HorizontalTextAlignment="Center"
+                       Keyboard="Numeric"
+                       />
+
+            <CollectionView ItemsSource="{Binding salaries}"
+                        SelectionMode="Single"
+                        SelectedItem="{Binding salaryinfo}"
+                        >
+                <CollectionView.ItemTemplate >
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="70"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label
+                               Text="Hour:"
+                               FontSize="Large"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               TextColor="Black"
+                               />
+                            <Label
+                               Text="{Binding Hours}"
+                               FontSize="Large"
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               TextColor="OrangeRed"
+                               />
+                            <Label
+                               Text="Per Hour:"
+                               FontSize="Large"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               TextColor="Black"
+                               />
+
+                            <Label
+                         
+                               Text="{Binding PerHour}"
+                               FontSize="Large"
+                               Grid.Row="1"
+                               Grid.Column="1"
+                               TextColor="OrangeRed"
+                               />
+                            <Label
+                               Text="Total:"
+                               FontSize="Large"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               TextColor="Black"
+                               />
+
+                            <Label
+                         
+                               Text="{Binding Total}"
+                               FontSize="Large"
+                               Grid.Row="2"
+                               Grid.Column="1"
+                               TextColor="OrangeRed"
+                               />
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

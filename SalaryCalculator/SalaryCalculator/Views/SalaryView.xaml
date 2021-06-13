@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalaryCalculator.Views.SalaryView"
+             xmlns:vm="clr-namespace:SalaryCalculator.ViewModels"
+             Title="Calculate"
+             >
+    <ContentPage.BindingContext>
+        <vm:SalaryViewModel/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <Label 
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Text="Per Hour:"
+                    TextColor="Black"
+                    FontSize="Large"
+                    FontAttributes="Italic"
+                    VerticalOptions="Center"
+                    />
+                <Entry Text="{Binding PerHourEntry}"
+                       Grid.Column="1"
+                       WidthRequest="300"
+                       HorizontalTextAlignment="Center"
+                       Keyboard="Numeric"
+                       />
+                <Label 
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Hours:"
+                    TextColor="Black"
+                    FontSize="Large"
+                    FontAttributes="Italic"
+                    VerticalOptions="Center"
+                    />
+                <Entry Text="{Binding HoursEntry}"
+                    Grid.Row="1"
+                       Grid.Column="1"
+                       WidthRequest="300"
+                       HorizontalTextAlignment="Center"
+                       Keyboard="Numeric"
+                       />
+                <Label 
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Text="Days:"
+                    TextColor="Black"
+                    FontSize="Large"
+                    FontAttributes="Italic"
+                    VerticalOptions="Center"
+                    />
+                <Entry Text="{Binding DaysEntry}"
+                    Grid.Row="2"
+                       Grid.Column="1"
+                       WidthRequest="300"
+                       HorizontalTextAlignment="Center"
+                       Keyboard="Numeric"
+                       />
+                <Label 
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Text="Currency:"
+                    TextColor="Black"
+                    FontSize="Large"
+                    FontAttributes="Italic"
+                    VerticalOptions="Center"
+                    />
+                <Picker Grid.Row="3"
+                        Grid.Column="1"
+                        Grid.ColumnSpan="2"
+                        ItemsSource="{Binding PickerItemSource}"
+                        SelectedItem="{Binding SelectedPickerItem}"
+                        HorizontalTextAlignment="Center"
+                        />
+                <Button 
+                    Grid.Row="6"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    WidthRequest="200"
+                    Text="Calculate"
+                    CornerRadius="20"
+                    Command="{Binding CalculateCommand}"
+                    HorizontalOptions="Center"/>
+
+                <Label 
+                    Grid.Row="9"
+                    Grid.Column="0"
+                    Text="Result:"
+                    TextColor="Black"
+                    FontSize="Large"
+                    FontAttributes="Italic"
+                    VerticalOptions="Center"
+                    />
+                <Label 
+                    Grid.Row="9"
+                    Grid.Column="1"
+                    Text="{Binding ResultLabel}"
+                    TextColor="Black"
+                    FontSize="Large"
+                    FontAttributes="Bold"
+                    VerticalOptions="Center"
+                    HorizontalTextAlignment="Center"
+                    />
+            </Grid>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

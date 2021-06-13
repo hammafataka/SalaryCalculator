@@ -1,0 +1,14 @@
+﻿<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SalaryCalculator.AppShell"
+             xmlns:views="clr-namespace:SalaryCalculator.Views">
+    <FlyoutItem FlyoutDisplayOptions="AsMultipleItems">
+        <Tab Title="Salay Calculator">
+            <ShellContent ContentTemplate="{DataTemplate views:SalaryView}"/>
+        </Tab>
+        <Tab Title="Monthly Note">
+            <ShellContent ContentTemplate="{DataTemplate views:MonthlyNote}"/>
+        </Tab>
+    </FlyoutItem>
+    
+</Shell>
